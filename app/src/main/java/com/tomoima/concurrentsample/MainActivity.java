@@ -56,13 +56,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startTask(View view){
-        Log.v(TAG, "¥¥startTask");
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                TwoTaskWorker.getInstance().startTask();
-            }
-        }).start();
+        Log.v(TAG, "¥¥¥¥startTask");
+        //final CountDownLatch doneSignal = new CountDownLatch(2);
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                TwoTaskWorker.getInstance().startTask();
+//            }
+//        }).start();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                TaskQueue queue = TaskQueue.getInstance();
+//                queue.startTask(new Test2(doneSignal,"1"));
+//                queue.startTask(new Test2(doneSignal,"2"));
+//                try {
+//                    doneSignal.await();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                Log.v(TAG, "¥finished TwoTaskWorker getCountDownLatch ");
+//            }
+//        }).start();
+        new TwoTaskWorker2().start();
 
     }
 }
